@@ -1,5 +1,6 @@
 global class SyncProductPartScheduler implements Schedulable {
     global void execute(SchedulableContext sc) {
-        SyncProductPartService.syncPartsWithProducts();
+        //SyncProductPartService.syncPartsWithProducts();
+        database.executeBatch(new ProductPartSyncBatch(), 200);
     }
 }
